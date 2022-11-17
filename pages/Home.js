@@ -1,12 +1,12 @@
 import React from "react";
-import "./Home.css";
 import { ImTicket } from "react-icons/im";
 import { AiFillClockCircle, AiFillCalendar } from "react-icons/ai";
-
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+// import { Link } from "react-router-dom";
+// import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 import moment from "moment/moment";
 import { MdPerson } from "react-icons/md";
@@ -19,6 +19,7 @@ const Home = () => {
 
   const [search, setSearch] = useState("");
   useEffect(() => {
+    // REACT_APP_API_URL=https://candleriggs-staging-73rkv.ondigitalocean.app/api
     fetch("https://candleriggs-staging-73rkv.ondigitalocean.app/api/getActiveEvents").then((result) => {
       result.json().then((resp) => {
         setItem(resp.eventData);
@@ -29,6 +30,7 @@ const Home = () => {
   const allevents = () => {
     fetch("https://candleriggs-staging-73rkv.ondigitalocean.app/api/getActiveEvents").then((result) => {
       result.json().then((resp) => {
+        console.log(resp)
         setItems(resp.eventData);
         console.log(resp.eventData);
       });
@@ -59,37 +61,63 @@ const Home = () => {
 
   return (
     <>
-      <Navbar search={search} setSearch={setSearch} />
-      <div className="exceedContainer" style={{ overflow: "hidden" }}>
-        <div className="containerFirst">
-          <div className="f-cont">
+      {/* <Navbar search={search} setSearch={setSearch} /> */}
+      <div 
+       className={styles.exceedContainer}
+      style={{ overflow: "hidden" }}>
+        <div className=
+        {styles.containerFirst}
+        >
+          <div 
+          
+          className=
+          {styles.f_cont}
+         >
             {user.slice(0, 1).map((imagess, i) => (
               <>
-                <div className="fContImages fContImagesDesktop" key={i}>
+                <div
+                className={`${styles["fContImages"]} ${styles["fContImagesDesktop"]}`}
+                
+                 key={i}>
                   <img
                     src={imagess.addBannerImage}
-                    className="img-fluid"
+                    className=
+                {styles.img_fluid}
                     alt=""
                   />
                 </div>
-                <div className="fContImages fContImagesMobile">
+                <div 
+                
+                className={`${styles["fContImages"]} ${styles["fContImagesMobile"]}`}
+               >
                   <img
                     src={imagess.addMobileBannerImage}
-                    className="img-fluid"
+                    className=
+                    {styles.img_fluid}
+                   
                     alt=""
                   />
                 </div>
               </>
             ))}
 
-            <div className="container">
-              <div className="wts-on">
+            <div
+             className=
+             {styles.container}
+           >
+              <div
+               className=
+               {styles.wts_on}
+             >
                 <div
-                  className="Link"
+                className=
+                {styles.Link}
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <p
-                    className="pWhat-on"
+                   
+                    className=
+                {styles.pWhat_on}
                     style={{
                       margin: "auto",
                       fontSize: "21px",
@@ -99,12 +127,19 @@ const Home = () => {
                   >
                     What's On At Glasgow's Coolest Event Space.
                   </p>
-                  <p className="pWhat-on2">
+                  <p 
+                  
+                  className=
+                {styles.pWhat_on2}
+                
+                >
                     What's On At Glasgow's Leading Event Space
                   </p>
 
                   <p
-                    className="wtsView"
+                  className=
+                  {styles.wtsView}
+                    
                     style={{
                       marginTop: "15px",
                       fontSize: "20px",
@@ -117,17 +152,23 @@ const Home = () => {
                         color: "Black",
                         marginTop: "5px",
                       }}
-                      to="/whats-on"
+                      href="/whats-on"
                     >
                       View All
                     </Link>
                   </p>
                 </div>
 
-                <div className="frontImageFlex">
+                <div 
+                
+                className=
+                {styles.frontImageFlex}
+                >
                   <div
-                    className="allFrontImage row row-cols-1 row-cols-md-3 g-4"
-                    style={{ marginTop: "0.5rem", marginBottom: "25rem" }}
+                  className={`${styles["allFrontImage"]} ${styles["row"]} ${styles["row-cols-1 "]} ${styles["row-cols-md-3"]}   ${styles["g-4"]}`}
+                   
+                    style={{ marginTop: "0.5rem", marginBottom: "25rem","display":"flex",
+                  "justifyContent":"center" }}
                   >
                     {item && item.length
                       ? item
@@ -145,38 +186,50 @@ const Home = () => {
                           .slice(0, 9)
                           .map((data, i) => (
                             <div
-                              className="col home_event homeEventCol"
+                            className={`${styles["col"]} ${styles["home_event"]} ${styles["homeEventCol "]} `}
+                              
                               key={i}
                             >
                               {/* <div className="card"> */}
-                              <Link
+                              {/* <Link
                                 to={`/event/${data.eventName
                                   .replaceAll(" ", "-")
                                   .toLowerCase()}`}
                               >
-                                <img
-                                  src={data.uploadMainImage}
-                                  style={{ borderRadius: "50px 0px 0px 0px " }}
-                                  className="card-img-top"
-                                  alt="..."
-                                />
-                              </Link>
+                            </Link> */}
+                            <img
+                              src={data.uploadMainImage}
+                              style={{ borderRadius: "50px 0px 0px 0px " }}
+                              className={`${styles["card-img-top"]}`}
+                              
+                              alt="..."
+                            />
 
-                              <div
-                                className="card-body cardbodyh5 background-color-home"
-                                style={{ background: "#270F33" }}
+                              <div 
+                             
+                               className={`${styles["card-body"]} ${styles["cardbodyh5"]} ${styles["background-color-home"]} `}
+                               
+                                style={{ background: "#270F33",'fontFamily':"Roboto" }}
                               >
-                                <h5 className="card-title">
+                                <h5
+                                className={styles.card_title}
+                               >
                                   {data.eventName.slice(0, 50)}
                                 </h5>
-                                <p className="card-text cardTitle">
+                                <p 
+                                className={`${styles["card-text"]} ${styles["cardTitle"]} `}
+                                >
                                   {data.title.slice(0, 80)}
                                 </p>
-                                <p className="card-text text-1">
+                                <p 
+                                className={`${styles["card-text"]} ${styles["text-1"]} `}
+                                >
                                   {data.subTitle.slice(0, 160)}
                                 </p>
                                 {data.price != 0 ? (
-                                  <p className="card-text text-2">
+                                  <p
+                                  className={`${styles["card-text"]} ${styles["text-2"]} `}
+                                  >
                                     <ImTicket
                                       style={{
                                         position: "relative",
@@ -189,7 +242,10 @@ const Home = () => {
                                     Tickets &#163;{data.price}
                                   </p>
                                 ) : (
-                                  <p className="card-text text-2">
+                                  <p 
+                                  
+                                  className={`${styles["card-text"]} ${styles["text-2"]} `}
+                                 >
                                     {" "}
                                     <ImTicket
                                       style={{
@@ -204,7 +260,8 @@ const Home = () => {
                                   </p>
                                 )}
                                 <p
-                                  className="card-text text-2-a"
+                                 className={`${styles["card-text"]} ${styles["text-2-a"]} `}
+                                 
                                   style={{ fontFamily: "Roboto" }}
                                 >
                                   {/* {data.showStartMinute ===0 ? data.showStartHour :} */}
@@ -218,7 +275,10 @@ const Home = () => {
                                   Show {data.showStartTime}
                                   {""} | Doors {data.doorOpeningTime}
                                 </p>
-                                <p className="card-text date">
+                                <p
+                                
+                                className={`${styles["card-text"]} ${styles["date"]} `}
+                                >
                                   <AiFillCalendar
                                     style={{ marginTop: "-3px" }}
                                   />{" "}
@@ -228,7 +288,10 @@ const Home = () => {
                                 </p>
                                 {data.selectAge === "18+" ||
                                 data.selectAge === "All Ages" ? (
-                                  <p className="card-text CardTextAge">
+                                  <p 
+                                  
+                                  className={`${styles["card-text"]} ${styles["CardTextAge"]} `}
+                                 >
                                     <MdPerson style={{ marginTop: "-3px" }} />
                                     &nbsp;Age:&nbsp;{data.selectAge}
                                   </p>
@@ -236,7 +299,8 @@ const Home = () => {
 
                                 <a
                                   href={data.eventLink}
-                                  className="btn btn-primary button"
+                                  className={`${styles["btn"]} ${styles["btn-primary"]} ${styles["button"]} `}
+                                 
                                 >
                                   Book Tickets
                                 </a>
@@ -516,7 +580,7 @@ const Home = () => {
           : null}
       </div> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
