@@ -15,8 +15,11 @@ import dayjs from "dayjs";
 
 
 
+
+
 import dynamic from "next/dynamic";
 import Image from "next/legacy/image";
+import Link from "next/link";
 
 const Navbar = dynamic(() => import("../component/NavBar"), {
   ssr: false
@@ -127,10 +130,10 @@ const Home = () => {
                       textAlign: "center",
                     }}
                   >
-                    What's On At Glasgow's Coolest Event Space.
+                    What&quot;s On At Glasgow&quot;s Coolest Event Space.
                   </p>
                   <p className={styles.pWhat_on2}>
-                    What's On At Glasgow's Leading Event Space
+                    What&quot;s On At Glasgow&quot;s Leading Event Space
                   </p>
 
                   <p
@@ -141,7 +144,7 @@ const Home = () => {
                       fontWeight: "500",
                     }}
                   >
-                    <a
+                    <Link
                       style={{
                         textDecoration: "none",
                         color: "Black",
@@ -150,7 +153,7 @@ const Home = () => {
                       href="/"
                     >
                       View All
-                    </a>
+                    </Link>
                   </p>
                 </div>
 
@@ -261,12 +264,12 @@ const Home = () => {
                                   </p>
                                 ) : null}
 
-                                <a
+                                <Link
                                   href={data.eventLink}
                                   className={`${styles["btn"]} ${styles["btn-primary"]} ${styles["button"]} `}
                                 >
                                   Book Tickets
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           ))
