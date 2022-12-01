@@ -4,6 +4,10 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../styles/Footer.module.css";
+import dynamic from "next/dynamic";
+
+
+
 
 
 const Footer = () => {
@@ -101,7 +105,7 @@ const Footer = () => {
                 >
                   {" "}
                   <span style={{ fontSize: "25px" }}>
-                    <mail />
+                    {/* <mail /> */}
                   </span>{" "}
                   events@18candleriggs.com
                 </a>

@@ -14,12 +14,14 @@ import dayjs from "dayjs";
 
 
 
-import dynamic from "next/dynamic";
 
-const Navbar = dynamic(() => import("./NavBar"), {
+import dynamic from "next/dynamic";
+import Image from "next/legacy/image";
+
+const Navbar = dynamic(() => import("../component/NavBar"), {
   ssr: false
 });
-const Footer = dynamic(() => import("./Footer"), {
+const Footer = dynamic(() => import("../component/Footer"), {
   ssr: false
 });
 
@@ -90,18 +92,20 @@ const Home = () => {
                   className={`${styles["fContImages"]} ${styles["fContImagesDesktop"]}`}
                   key={i}
                 >
-                  <img
+                  <Image
                     src={imagess.addBannerImage}
                     className={styles.img_fluid}
+                    height={500} width={500}
                     alt=""
                   />
                 </div>
                 <div
                   className={`${styles["fContImages"]} ${styles["fContImagesMobile"]}`}
                 >
-                  <img
+                  <Image
                     src={imagess.addMobileBannerImage}
                     className={styles.img_fluid}
+                    height={500} width={500}
                     alt=""
                   />
                 </div>
@@ -186,10 +190,11 @@ const Home = () => {
                                   .toLowerCase()}`}
                               >
                             </Link> */}
-                              <img
+                              <Image
                                 src={data.uploadMainImage}
                                 style={{ borderRadius: "50px 0px 0px 0px " }}
                                 className={`${styles["card-img-top"]}`}
+                                height={500} width={500}
                                 alt="..."
                               />
 

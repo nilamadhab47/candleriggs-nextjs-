@@ -1,5 +1,6 @@
+import Image from "next/image";
 import React from "react";
-import styles from "../styles/Footer.module.css"
+import styles from "../styles/Navbar.module.css"
 
 
 
@@ -16,14 +17,15 @@ const Navbar = ({search, setSearch}) => {
 
      
     <div>
-      <nav className={`${styles["navbar"]} ${styles["navbar_expand_lg"]}`} style={{background:"#270F33"}}>
-        <div className="container_fluid">
+      <nav className={styles.navbar} style={{background:"#270F33"}}>
+        <div className={styles.navbar_div}>
           <a className={styles.navbar_brand} href="/">
           
-            <img
-              src="https://18-candleriggs.fra1.digitaloceanspaces.com/logo11.png"
+            <Image
+              src="/logo1.png"
               alt="logo" className={styles.navbarImage}
-              style={{ marginLeft: "2rem", width: "6rem" }}
+         
+              width={300} height={400}
             />
           </a>
          
@@ -35,9 +37,9 @@ const Navbar = ({search, setSearch}) => {
           >
             <input type="text" className={styles.search__input} placeholder="Search" onChange={handleSearch} />
             <button className={styles.search__button}>
-              <svg className={styles.search__icon}>
+              {/* <svg className={styles.search__icon}>
                 search
-              </svg>
+              </svg> */}
             </button>
           </form>
            <button
